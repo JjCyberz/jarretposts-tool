@@ -128,6 +128,17 @@ p {
   color: var(--muted);
 }
 
+.code-box {
+  background: #10131a;
+  border-radius: 8px;
+  color: #ffffff;
+  display: block;
+  font-family: Consolas, Monaco, monospace;
+  overflow-wrap: anywhere;
+  padding: 18px;
+  white-space: pre-wrap;
+}
+
 footer {
   align-items: center;
   background: var(--panel);

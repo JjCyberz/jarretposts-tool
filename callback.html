@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TikTok OAuth Callback - JarretPosts</title>
+  <meta name="description" content="TikTok OAuth callback page for JarretPosts.">
+  <link rel="icon" href="assets/app-icon.png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="JarretPosts home">
+      <img src="assets/app-icon.png" alt="" width="36" height="36">
+      <span>JarretPosts</span>
+    </a>
+    <nav aria-label="Main navigation">
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+    </nav>
+  </header>
+
+  <main class="legal">
+    <h1>TikTok Authorization</h1>
+    <p id="status">Reading authorization response...</p>
+
+    <section class="content-section">
+      <h2>Authorization Code</h2>
+      <p>
+        Copy this code back into JarretPosts to finish connecting TikTok.
+      </p>
+      <pre id="codeBox" class="code-box">No code found.</pre>
+    </section>
+  </main>
+
+  <footer>
+    <span>&copy; 2026 JarretPosts</span>
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="terms.html">Terms of Service</a>
+  </footer>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const code = params.get("code");
+    const error = params.get("error");
+    const errorDescription = params.get("error_description");
+    const status = document.getElementById("status");
+    const codeBox = document.getElementById("codeBox");
+
+    if (code) {
+      status.textContent = "Authorization succeeded.";
+      codeBox.textContent = code;
+    } else if (error) {
+      status.textContent = "Authorization failed.";
+      codeBox.textContent = errorDescription || error;
+    } else {
+      status.textContent = "No authorization code was returned.";
+    }
+  </script>
+</body>
+</html>
