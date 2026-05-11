@@ -73,7 +73,7 @@
       document.getElementById("addressNeeded").classList.add("hidden");
     }
     const checkout = params.get("payment_link") || params.get("paymentLink") || params.get("checkout") || params.get("checkout_url");
-    if (/^https:///i.test(checkout || "")) {
+    if (new RegExp("^https://", "i").test(checkout || "")) {
       document.getElementById("checkoutLink").href = checkout;
       document.getElementById("checkoutBlock").classList.remove("hidden");
     }
