@@ -191,7 +191,7 @@
       <div class="prooflink" id="basescan-wrap">
         <p>Verify the public address and submit payment proof:</p>
         <a id="basescanLink" href="#">Open BaseScan</a>
-        <a class="gold" id="proofLink" href="https://github.com/JjCyberz/jarretposts-tool/issues/new?title=Life%20Admin%20Reset%20payment%20proof&body=Transaction%20hash:%20%0ADelivery%20contact:%20">Submit proof</a>
+        <a class="gold" id="proofLink" href="https://github.com/JjCyberz/jarretposts-tool/issues/1">Submit proof</a>
       </div>
       <p class="note">After paying, submit the transaction hash and a delivery contact. The ZIP is delivered after the payment is visible on-chain.</p>
     </section>
@@ -219,10 +219,7 @@
       document.getElementById("address").textContent = visibleAddress;
       const basescan = document.getElementById("basescanLink");
       basescan.href = `https://basescan.org/address/${visibleAddress}`;
-      const proof = new URL("https://github.com/JjCyberz/jarretposts-tool/issues/new");
-      proof.searchParams.set("title", "Life Admin Reset payment proof");
-      proof.searchParams.set("body", `Product: Life Admin Reset Bundle\nNetwork: Base\nExpected amount: 5 USDC\nRecipient: ${visibleAddress}\nTransaction hash:\nDelivery contact:`);
-      document.getElementById("proofLink").href = proof.toString();
+      document.getElementById("proofLink").href = "https://github.com/JjCyberz/jarretposts-tool/issues/1";
       document.getElementById("basescan-wrap").style.display = "block";
     } else if (!hasInstalledAddress) {
       document.getElementById("wallet-block").style.display = "none";
